@@ -1,4 +1,4 @@
-/* ===== ROOT VARIABLES ===== */
+/* --- Variables --- */
 :root {
   --bg: #f6f4ef;
   --text: #1f1f1f;
@@ -7,22 +7,24 @@
   --container-width: 720px;
 }
 
-/* ===== RESET ===== */
+/* --- Reset --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===== BASE ===== */
+/* --- Base --- */
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-  line-height: 1.6;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.65;
+  font-size: 16px;
+  letter-spacing: 0.2px;
 }
 
-/* ===== NAV ===== */
+/* --- Nav --- */
 .nav {
   width: 100%;
   border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -38,54 +40,52 @@ body {
 }
 
 .nav-logo {
-  font-weight: 500;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
   text-decoration: none;
   color: var(--text);
 }
 
-/* ===== NAV LINKS ===== */
 .nav-links a {
   margin-left: 1.5rem;
   text-decoration: none;
   color: var(--muted);
   font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
-/* Hover effect for non-active links only */
-.nav-links a:not(.active):hover {
-  color: var(--text);          /* gentle color change */
-  transform: scale(1.05);      /* subtle grow */
-}
-
-/* Active page styling */
 .nav-links a.active {
-  color: var(--accent);        /* accent color for active page */
-  font-weight: 500;            /* slightly bolder */
-  position: relative;
-  transform: none;             /* ensure no transform applied */
+  color: var(--accent);
+  font-weight: 600;
+  transform: none;
 }
 
+.nav-links a:not(.active):hover {
+  color: var(--text);
+  transform: scale(1.05);
+}
 
-/* ===== CONTAINER ===== */
+/* --- Container --- */
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 2.5rem 1rem 4rem;
 }
 
-/* ===== HOME ===== */
+/* --- Home --- */
 .home {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* HERO placeholder */
 .hero {
   width: 100%;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 }
 
 .media-placeholder {
@@ -98,17 +98,18 @@ body {
   justify-content: center;
   color: var(--muted);
   font-size: 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
 }
 
-/* ABOUT LINK ON HOME */
 .home-link {
   margin-top: 1rem;
 }
 
 .home-link a {
-  text-decoration: none;
   font-size: 0.95rem;
+  font-weight: 500;
   color: var(--text);
+  text-decoration: none;
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
@@ -117,7 +118,7 @@ body {
   transform: translateX(4px) scale(1.05);
 }
 
-/* ===== ABOUT PAGE ID CARD ===== */
+/* --- About --- */
 .id-card {
   display: flex;
   flex-direction: column;
@@ -136,19 +137,26 @@ body {
 }
 
 .id-info h1 {
-  font-size: 2rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
 }
 
 .id-lore {
   max-width: 600px;
-  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.85;
   color: var(--text);
-  line-height: 1.6;
+  letter-spacing: 0.15px;
 }
 
-/* ===== PROJECT FEED ===== */
+.id-lore::first-line {
+  font-weight: 500;
+}
+
+/* --- Project Feed --- */
 .project-feed {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -174,13 +182,98 @@ body {
 
 .project-card h2 {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   margin-top: 0.5rem;
   text-align: center;
+  letter-spacing: 0.2px;
 }
 
 .project-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 8px var(--accent, #6b7c5a);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 8px rgba(107,124,90,0.35);
 }
 
+/* --- Project Hero / Carousel --- */
+.project-hero {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  aspect-ratio: 16 / 9; /* keeps the carousel in a 16:9 ratio */
+}
+
+.project-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills container, keeps aspect ratio, may crop */
+}
+
+
+.carousel-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin: 0 6px;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.dot.active {
+  background-color: var(--accent);
+  transform: scale(1.2);
+}
+.dot:hover {
+  background-color: var(--accent);
+  transform: scale(1.1);
+}
+
+
+
+/* --- Project Info --- */
+.project-info {
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: left;
+  line-height: 1.7;
+}
+
+.project-info h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.project-info p {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+/* --- Back Link --- */
+.back-link {
+  display: block;
+  margin: 3rem auto;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.back-link a {
+  text-decoration: none;
+  color: var(--accent);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.back-link a:hover {
+  transform: scale(1.05);
+  color: darkgreen;
+}
