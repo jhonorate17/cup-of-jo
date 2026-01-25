@@ -175,10 +175,18 @@ body {
   flex-direction: column;
   text-decoration: none;
   color: var(--text);
-  border-radius: 4px;
+  border-radius: 6px;
+  border: 1px solid rgba(49, 60, 38, 0.1); /* very subtle */
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06); /* softer, lighter shadow */
+  border-color: rgba(107,124,90,0.25);     /* gentle accent on hover */
+}
+
 
 .project-card img {
   width: 100%;
@@ -192,11 +200,6 @@ body {
   margin-top: 0.5rem;
   text-align: center;
   letter-spacing: 0.2px;
-}
-
-.project-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 0 8px rgba(107,124,90,0.35);
 }
 
 /* --- Project Hero / Carousel --- */
@@ -282,4 +285,31 @@ body {
 .back-link a:hover {
   transform: scale(1.05);
   color: darkgreen;
+}
+/* --- Ultra-Slim Inline Buttons --- */
+.btn-link {
+  display: inline-block;
+  padding: 0.25rem 0.7rem; /* very slim */
+  font-size: 0.85rem;       /* slightly smaller text */
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 3px;       /* subtle corner rounding */
+  border: 1.5px solid var(--accent);
+  transition: all 0.15s ease;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.btn-link:hover {
+  background: #4f593f; /* darker accent on hover */
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.btn-link:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
