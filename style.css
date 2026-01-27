@@ -61,7 +61,6 @@ body {
 .nav-links a.active {
   color: var(--accent);
   font-weight: 600;
-  transform: none;
 }
 
 .nav-links a:not(.active):hover {
@@ -76,7 +75,7 @@ body {
   padding: 2.5rem 1rem 4rem;
 }
 
-/* --- Home --- */
+/* --- Home / Hero --- */
 .home {
   display: flex;
   flex-direction: column;
@@ -95,8 +94,8 @@ body {
   border: 1.5px solid rgba(107, 124, 90, 0.6);
   border-radius: 8px;
   overflow: hidden;
+  position: relative;
 }
-
 
 .media-placeholder img {
   width: 100%;
@@ -106,7 +105,39 @@ body {
   display: block;
 }
 
+/* --- Hero Text Overlay --- */
+.hero-overlay {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(246, 244, 239, 0.85);
+  backdrop-filter: blur(6px);
+  padding: 0.5rem 0.8rem; /* slightly smaller for a subtle look */
+  border-radius: 6px;
+  text-align: center;
+}
 
+.hero-overlay h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem; /* smaller */
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.hero-sub {
+  font-size: 0.85rem; /* slightly smaller */
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.2px;
+}
+
+.hero-desc {
+  font-size: 0.85rem; /* slightly smaller */
+  color: var(--text);
+}
+
+/* --- Home Link --- */
 .home-link {
   margin-top: 1rem;
 }
@@ -124,7 +155,7 @@ body {
   transform: translateX(4px) scale(1.05);
 }
 
-/* --- About --- */
+/* --- About / ID Card --- */
 .id-card {
   display: flex;
   flex-direction: column;
@@ -176,17 +207,16 @@ body {
   text-decoration: none;
   color: var(--text);
   border-radius: 6px;
-  border: 1px solid rgba(49, 60, 38, 0.1); /* very subtle */
+  border: 1px solid rgba(49, 60, 38, 0.1);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .project-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06); /* softer, lighter shadow */
-  border-color: rgba(107,124,90,0.25);     /* gentle accent on hover */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  border-color: rgba(107,124,90,0.25);
 }
-
 
 .project-card img {
   width: 100%;
@@ -210,15 +240,14 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  aspect-ratio: 16 / 9; /* keeps the carousel in a 16:9 ratio */
+  aspect-ratio: 16 / 9;
 }
 
 .project-hero img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* fills container, keeps aspect ratio, may crop */
+  object-fit: cover;
 }
-
 
 .carousel-dots {
   position: absolute;
@@ -239,16 +268,16 @@ body {
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
+
 .dot.active {
   background-color: var(--accent);
   transform: scale(1.2);
 }
+
 .dot:hover {
   background-color: var(--accent);
   transform: scale(1.1);
 }
-
-
 
 /* --- Project Info --- */
 .project-info {
@@ -286,16 +315,17 @@ body {
   transform: scale(1.05);
   color: darkgreen;
 }
+
 /* --- Ultra-Slim Inline Buttons --- */
 .btn-link {
   display: inline-block;
-  padding: 0.25rem 0.7rem; /* very slim */
-  font-size: 0.85rem;       /* slightly smaller text */
+  padding: 0.25rem 0.7rem;
+  font-size: 0.85rem;
   font-weight: 500;
   text-decoration: none;
   color: #fff;
   background: var(--accent);
-  border-radius: 3px;       /* subtle corner rounding */
+  border-radius: 3px;
   border: 1.5px solid var(--accent);
   transition: all 0.15s ease;
   cursor: pointer;
@@ -304,7 +334,7 @@ body {
 }
 
 .btn-link:hover {
-  background: #4f593f; /* darker accent on hover */
+  background: #4f593f;
   transform: translateY(-1px) scale(1.02);
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
