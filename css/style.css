@@ -1,0 +1,687 @@
+/* --- Variables --- */
+:root {
+  --bg: #f6f4ef;
+  --text: #1f1f1f;
+  --muted: #6b6b6b;
+  --accent: #6b7c5a;
+  --container-width: 720px;
+}
+
+/* --- Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Base --- */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.65;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+}
+
+/* NAV */
+.nav {
+  width: 100%;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.nav-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo left */
+.nav-logo-left img {
+  height: 55px;
+  width: auto;
+  display: block;
+  opacity: 0.9;
+  transition: transform 0.2s ease;
+}
+
+.nav-logo-left:hover img {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+/* True center wordmark */
+.nav-wordmark-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* Links right */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.nav-links a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* --- Container --- */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 2.5rem 1rem 4rem;
+}
+
+/* --- Home / Hero --- */
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 2rem auto;
+}
+
+.media-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1.5px solid rgba(107, 124, 90, 0.6);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.media-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* --- Hero Text Overlay --- */
+.hero-overlay {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(246, 244, 239, 0.85);
+  backdrop-filter: blur(6px);
+  padding: 0.5rem 0.8rem; /* slightly smaller for a subtle look */
+  border-radius: 6px;
+  text-align: center;
+}
+
+.hero-overlay h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem; /* smaller */
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.hero-sub {
+  font-size: 0.85rem; /* slightly smaller */
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.2px;
+}
+
+.hero-desc {
+  font-size: 0.85rem; /* slightly smaller */
+  color: var(--text);
+}
+
+/* --- Home Link --- */
+.home-link {
+  margin-top: 1rem;
+}
+
+.home-link a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.home-link a:hover {
+  color: var(--accent);
+  transform: translateX(4px) scale(1.05);
+}
+
+/* --- About / ID Card --- */
+.id-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.id-photo img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+}
+
+.id-info h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.id-lore {
+  max-width: 600px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--text);
+  letter-spacing: 0.15px;
+}
+
+.id-lore::first-line {
+  font-weight: 500;
+}
+
+/* --- Project Feed --- */
+.project-feed {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--text);
+  border-radius: 6px;
+  border: 1px solid rgba(49, 60, 38, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  border-color: rgba(107,124,90,0.25);
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-card h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+/* --- Project Hero / Carousel --- */
+.project-hero {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  aspect-ratio: 16 / 9;
+}
+
+.project-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit:fill;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin: 0 6px;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.dot.active {
+  background-color: var(--accent);
+  transform: scale(1.2);
+}
+
+.dot:hover {
+  background-color: var(--accent);
+  transform: scale(1.1);
+}
+
+/* --- Project Info --- */
+.project-info {
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: left;
+  line-height: 1.7;
+}
+
+.project-info h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.project-info p {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+/* --- Back Link --- */
+.back-link {
+  display: block;
+  margin: 3rem auto;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.back-link a {
+  text-decoration: none;
+  color: var(--accent);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.back-link a:hover {
+  transform: scale(1.05);
+  color: darkgreen;
+}
+
+/* --- Ultra-Slim Inline Buttons --- */
+.btn-link {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 3px;
+  border: 1.5px solid var(--accent);
+  transition: all 0.15s ease;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.btn-link:hover {
+  background: #4f593f;
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.btn-link:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* --- Responsive Nav --- */
+@media (max-width: 768px) {
+  .nav-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  /* Shrink logo on mobile */
+  .nav-logo-left img {
+    height: 40px;
+  }
+
+  /* Move Cup of Jo below logo and links on small screens */
+  .nav-wordmark-center {
+    position: static;
+    transform: none;
+    font-size: 1.4rem;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+  /* Stack links below or adjust spacing */
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .nav-links a {
+    margin: 0.25rem 0.5rem;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+  .nav-wordmark-center {
+    font-size: 1.2rem;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+  }
+}
+
+/* --- Footer --- */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.footer a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer a:hover {
+  color: var(--accent);
+}
+
+.nav-logo-left canvas {
+  display: block;
+  width: 180px;
+  height: 180px;
+}
+
+@media (max-width: 768px) {
+  .nav-logo-left canvas {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-overlay p {
+    font-size: 0.7rem;
+  }
+}
+.project-video {
+  margin: 2.5rem 0;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 8px;        /* match whatever border-radius your site uses */
+  overflow: hidden;
+}
+
+.project-video iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.section-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 2rem 0 0.5rem;
+  opacity: 0.5;
+}
+
+.placeholder-text {
+  opacity: 0.4;
+  font-style: italic;
+}
+/* ── Journal ─────────────────────────────────────────── */
+.journal-header {
+  text-align: center;
+  padding: 2rem 0 1rem;
+}
+.journal-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+.journal-counter {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  opacity: 0.4;
+  margin-top: 0.5rem;
+}
+.journal-entry-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.journal-entry-nav button {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  background: none;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  padding: 0.3rem 0.65rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  opacity: 0.5;
+}
+.journal-entry-nav button:hover { opacity: 1; border-color: currentColor; }
+.journal-entry-nav button.active { opacity: 1; border-color: currentColor; font-weight: 500; }
+
+.journal-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.journal-images {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.journal-main-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.journal-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.journal-thumbs img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.journal-thumbs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.journal-thumbs img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+.journal-thumbs img:hover,
+.journal-thumbs img.active { opacity: 1; }
+.journal-text { width: 100%; }
+.journal-entry-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.journal-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  opacity: 0.4;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+.journal-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+.journal-section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.4;
+  margin: 1.5rem 0 0.5rem;
+  display: block;
+}
+.journal-video {
+  margin-top: 1.25rem;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.journal-video iframe { width: 100%; height: 100%; display: block; }
+.journal-extra {
+  margin-top: 1.25rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+}
+.journal-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.journal-nav button {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  background: none;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.journal-nav button:hover:not(:disabled) { border-color: currentColor; }
+.journal-nav button:disabled { opacity: 0.2; cursor: default; }
+.journal-nav-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  opacity: 0.35;
+  text-align: center;
+  max-width: 40%;
+}
+.fade-in { animation: journalFadeUp 0.3s ease; }
+@keyframes journalFadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 768px) {
+  .journal-images { width: 100%; }
+  .journal-nav-label { display: none; }
+}
+/* Styling for the cross-fade hover image interaction with a border */
+
+.id-photo-container {
+  position: relative; 
+  width: 200px;         /* Caps the width */
+  height: 200px;        /* Caps the height */
+  margin: 0 auto;       
+  
+  /* --- BORDER STYLING --- */
+  border: 3px solid #334633;       /* White border - change color/thickness to match your theme */
+  border-radius: 12px;          /* Clean rounded corners for the frame */
+  overflow: hidden;             /* CRITICAL: Clips the square images to match the container's rounded corners */
+}
+
+/* Set standard styles for both photos */
+.id-photo-container .photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    
+  transition: opacity 0.4s ease-in-out; 
+}
+
+/* Position the second photo perfectly on top of the first */
+.id-photo-container .hover-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0; 
+}
+
+/* Fade OUT the resting photo on hover */
+.id-photo-container:hover .resting-photo {
+  opacity: 0;
+}
+
+/* Fade IN the hover photo on hover */
+.id-photo-container:hover .hover-photo {
+  opacity: 1;
+}
+

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blender Journal · Cup of Jo</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner nav-triptych">
+  
+      <a href="../index.html" class="nav-logo-left">
+<canvas id="logo-canvas"
+  data-model="../models/jo.glb">
+</canvas>
+      </a>
+  
+      <span class="nav-wordmark-center">Cup of Jo</span>
+  
+      <div class="nav-links">
+        <a href="../projects.html" class="active">Projects</a>
+        <a href="../about.html">About</a>
+      </div>
+  
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <div class="journal-header">
+      <h1>Learning Blender · My Journal</h1>
+      <p class="journal-counter" id="journal-counter">Entry 10 · 10</p>
+    </div>
+
+    <div class="journal-entry-nav" id="journal-entry-nav"></div>
+
+    <div class="journal-wrap">
+      <div class="journal-images">
+        <img id="journal-main-img" class="journal-main-img" src="" alt="">
+        <div class="journal-thumbs" id="journal-thumbs"></div>
+      </div>
+
+      <div class="journal-text" id="journal-text"></div>
+    </div>
+
+    <div class="journal-nav">
+      <button id="prev-btn" disabled>← Previous</button>
+      <span class="journal-nav-label" id="journal-nav-label"></span>
+      <button id="next-btn">Next →</button>
+    </div>
+
+    <div class="back-link">
+      <a href="../projects.html">← Back to Projects</a>
+    </div>
+
+  </main>
+
+  <script>
+    const entries = [
+      {
+        number: 'X',
+        title: 'Blue Ridge Painting · Blender Study X',
+        date: 'May 2026',
+        images: ['../images/demo1001.png','../images/demo1002.png','../images/demo1003.png','../images/demo1004.png'],
+        content: `<span class="journal-section-label">Brand New Project Revamp!</span>
+Entry ten, and that feels like a milestone worth acknowledging. After this, the website will see a huge revamp. These entries will all be packed into one project, and I will have began working in the rendering workspace instead of screenshotting my projects. This will allowing me to start filling the portfolio with work that looks more professional. It has been a fun journey learning Blender, and I am excited to grow even more.<br><br> --- <br><br>
+For this one I went back to the very beginning, my first post on the site, and decided to give it a proper revamp. The twist? Learning texture painting at the same time. Two birds, one stone. <br><br>
+These projects are getting longer and the work times are going up with them, which makes sense, but balancing that with school and work has been a real one lately. Nonetheless, we keep pushing and go beyond!!!! <br><br>
+The subject was my NM Web project. Technically I was proud of it, but the physical board always felt like an afterthought. The content did what I wanted, spreading the message about keeping the Parkway beautiful and healthy, but aesthetically I knew I could've done more. So why not rebuild it in 3D and actually do it justice. <br><br>
+The goal was to keep what made it charming, happy hiker and his little home, while seriously elevating the parts that bugged me. The landmarks got a full glow-up, and the board itself I painted the topography directly onto using texture paint. That part felt really good once it came together. <br><br>
+Getting there was a different story. UV unwrapping for texture painting was genuinely brutal at first. Confusing in a way that felt almost personal. But somewhere along the way it started to click, and by the end I was moving through it pretty quickly. Progress is sneaky like that. The stencil tool was the big discovery of this entry, especially for the animals, it brings a realism that's hard to get any other way. That one's going in the regular toolkit. <br><br>
+I also got to work with landscape geometry for the first time, which is just really fun. Mountains, waterfalls, that tool has a lot of potential and I'm excited to push it further. <br><br>
+Overall, really happy with where this one landed. Feels like the original project is finally getting the visual treatment it always deserved. <br><br>
+<span class="journal-section-label">About the Original Project · December 2025</span>
+This was my final project for NM231: Introduction to Interactive Media. The prompt was open, most people went with AI, but I wanted to do something tied to the environment and my own interest in the outdoors. <br><br>
+In the weeks leading up to it I did a mix of research, went on hikes, and attended NEMAC and NOAA events. I got to talk with a NOAA employee about how maps are used to understand environmental impact, which ended up shaping a lot of the concept. <br><br>
+The project combines physical and digital interactivity. A hand-crafted map of the Blue Ridge Parkway is connected to a Makey Makey, and moving a hiker along it triggers the website to display information about environmental impacts and responsible hiking tips. The site was built in VS Code using JavaScript, HTML, and CSS, with Leaflet as the mapping framework. <br><br>
+The ten-button limit of the Makey Makey was actually a useful constraint, it forced me to be deliberate about what made the cut. Balancing ambition with feasibility is something I'm still figuring out, but this project was good practice for it. <br><br>
+Seeing the research, interface, and interactivity come together into something functional was quite satisfying.`,
+        extra: `<div class="journal-extra">
+          Here is a link to the original web project: <a href="./mapfinal/home.html" target="_blank" class="btn-link">CLICK ME!</a>
+          <div class="journal-video">
+            <iframe src="https://www.youtube.com/embed/BG2a5YklQtk" title="Interactive Blue Ridge Map" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>`
+      },
+      {
+        number: 'IX',
+        title: 'Texture Surprise · Blender Study IX',
+        date: 'April 2026',
+        images: ['../images/demo901.png','../images/demo902.png','../images/demo903.png','../images/demo904.png'],
+        content: `Entry nine. Almost double digits, and I'm already thinking about switching up the format of these posts soon. <br><br>
+New territory this time: UV Mapping, Material Texturing, and Image Texturing. <br><br>
+Also the first project so big in its file size it kinda messes up the website if I upload the entire thing, so the provided model is just an item preview. <br><br>
+Going into this, I didn't know what I should attempt for my first shot at texturing, so I did what I always do when I need a push and hit up an art gallery here in Asheville. A local artist's micro-sculpture stopped me immediately. The cabinet and all its objects had SO many different textures and varying material types. It was the perfect opportunity to practice everything I needed to study at once. I'm still trying to contact the artist to show them the piece and give them a thank you! <br><br>
+This one took significantly longer than expected, and honestly the world of UVs took me for twists and turns I did not see coming. I started the way I know how: straight mesh modeling. Extrude, slice, scale, cut, merge. The cabinet came together clean, all one shape. Then I went to apply the UV map and wood texture and it was a disaster. UVs everywhere, impossible to read, the whole texture map was just screwed. I provided a screenshot of that misfortune in the last picture on this project. My big takeaway was that I had to go shape by shape, one square or cylinder at a time, and neatly unwrap as I went. Shortcuts are not ideal and that is important to keep in mind. <br><br>
+After a lot of trial and error, every little teacup, jar, stone, and book started coming together. I got pretty comfortable in the UV and Shading workspaces, and while there's always room to polish, I'm really happy with how this first run-in with the very complicated world of UV and Texturing turned out.`
+      },
+      {
+        number: 'VIII',
+        title: 'Getting Colorful · Blender Study VIII',
+        date: 'March 2026',
+        images: ['../images/demo801.png','../images/demo802.png','../images/demo803.png','../images/demo804.png'],
+        content: `Entry eight, and honestly one I've been looking forward to for a while. Materials and color work, finally. <br><br>
+I can already see myself going back to older projects and giving them a splash of color. Nothing crazy, but just something to display them in a nicer way coming soon! <br><br>
+The tool can get tedious on larger scale work but seeing it all come together is genuinely satisfying. <br><br>
+For my first scene to color I wanted it to mean something, so I went back to the first video game I remember playing: Pokémon HeartGold and SoulSilver. Pure nostalgia. It was also a practical choice, lots of simple models that let me get reps in across face editing, blocking out, and sculpting, and the references have vibrant, distinctive colors that gave me a real range of values to work with. <br><br>
+Shading is something I'm going to be thinking about differently from here on. Geometry messes with your colors faster than you'd expect, and now that shadows and value balance are part of the equation, moving faces around felt like tiptoeing. One wrong move and the whole thing shifts. <br><br>
+This is one of the few entries where I don't have a long list of things I'd do differently. Pretty happy with this one.`
+      },
+      {
+        number: 'VII',
+        title: 'Face Molding · Blender Study VII',
+        date: 'March 2026',
+        images: ['../images/demo702.png','../images/demo701.png','../images/demo703.png','../images/demo704.png'],
+        content: `Seven entries in and the series is only getting more involved. I'm still figuring out how to keep these readable while making sure they actually capture the progress. I digress! Onto entry seven. <br><br>
+This one started with a face sculpting challenge, specifically testing out dynamic topology and retopology for the first time. Two very confusing tools. I have a better grip on them now but face modeling in general is brutal, getting proportions right on a human face after just a few attempts felt nearly impossible. Big struggle. <br><br>
+Rather than grinding against it I decided to pivot to something I'd actually enjoy, while keeping it in the same territory. That's where the stormtrooper helmet came in. <br><br>
+Traditionally helmet modeling is done with face modeling to get those sharp, defined edges. Sculpting isn't really built for that, but the helmets are face-like enough that I wanted to try anyway. I was also inspired by the LEGO Star Wars helmets, which have a softer, more organic quality than the standard design. That felt like a more honest target for where I'm at with sculpting right now. <br><br>
+After a lot of wrestling with symmetry, proportion, and balance I got to a result I'm happy with. I can see what I'd do differently, but going back in would be overworking it at this point. <br><br>
+<span class="journal-section-label">Update · New Progress</span>
+As a bonus, I hollowed out the helmet with the hope of eventually printing and wearing it. Originally, that part of the process went south in a very funny way and it was an absolute disaster after three printing attempts. I was stumped. <br><br>
+This led me to research the nature of slicing and how it interacts with STL and OBJ files, among other things. <br><br>
+After some time and a lot of printing, the helmet was a success! This was a great learning experience in being patient with my creations and allowing myself the time to figure things out. I cannot wait to paint this helmet and display it. Though it is not as big as intended due to printer limitations, it looks awesome! More tools soon!`
+      },
+      {
+        number: 'VI',
+        title: 'Sculpt Tools · Blender Study VI',
+        date: 'March 2026',
+        images: ['../images/demo601.png','../images/demo602.png','../images/demo603.png','../images/demo604.png'],
+        content: `This project is my first real dive into Blender's Sculpting workspace, and it's a pretty different beast from everything else in this series. <br><br>
+I chose to sculpt a spider rather than something simpler, wanted to push into territory that was anatomically complex and unfamiliar. I started with a blockout of the cephalothorax and abdomen, applied subdivision, and went straight into sculpting. Spider anatomy turned out to be a rabbit hole: chelicerae, pedipalps, segmented leg joints, spinnerets, book lungs. I referenced sources like Spiders of Europe and the World Spider Catalog to keep things biologically grounded. <br><br>
+Conceptually this was the hardest project yet. The toolset was exciting but for a few days I was just staring at a digital blob with no idea where to start. Things clicked when I stopped planning and started experimenting, testing brushes, exaggerating forms, iterating. Getting my drawing tablet back into the mix helped a lot too. Sculpting feels tactile in a way that regular modeling doesn't. <br><br>
+Through a lot of failure and small discoveries, a cube became a spider. <br><br>
+Sculpting is less about thought or assembly and more about discovery through just doing it. I'm looking forward to taking these tools into more organic and creature work.`
+      },
+      {
+        number: 'V',
+        title: 'Print Experiment · Blender Study V',
+        date: 'February 2026',
+        images: ['../images/demo504.png','../images/demo501.png','../images/demo503.png','../images/demo502.png'],
+        content: `This one is a bit longer than usual, but I promise it earns the read. A lot happened. <br><br>
+This is the fifth entry in the series and probably the biggest leap so far. I'm also enrolled in a 3D printing class this semester, so I finally did something I'd been wanting to try for a while: physically printing one of my own models. <br><br>
+The piece is a human body with internal organs, modeled primarily in orthographic view. It also gave me a chance to work through some tools I hadn't touched yet, knife, bisect, spin, smooth, randomize, shear, and rip. Each one introduced a new way to think about cutting, reshaping, and refining geometry, which mattered a lot when dealing with organic forms. <br><br>
+Surface topology is still something I struggle with, keeping things clean and knowing exactly where my vertices are sitting. But I was happy with how the organs turned out visually. <br><br>
+The bigger challenge came when I had to think about printing. Modeling for screen and modeling for a physical object are genuinely different problems. Whether something can actually exist in the real world adds a whole new layer to the process that I hadn't had to consider before. <br><br>
+My original goal was to make the organs slot into the body interactively. I tried using boolean operations to carve openings for them, but mesh issues got in the way and I couldn't get it fully working. What the booleans did leave behind were visible indents in the body, which ended up working as placement guides once everything was printed. Not what I planned, but it preserved the idea in a different form. <br><br>
+This project also made the messiness of Blender's inner geometry a lot more visible. Joining, dissolving, mirroring, boolean operations, these stack up fast and get unpredictable in combination. Cleaning that up was one of the more frustrating parts, but also one of the more educational ones. <br><br>
+Seeing the pieces printed in real life was genuinely rewarding. Holding them made surface topology feel immediate in a way that staring at a screen doesn't. This project changed how I think about modeling, not just as image-making but as object-making, and I'm carrying that into whatever comes next.`
+      },
+      {
+        number: 'IV',
+        title: 'Modifier Testing · Blender Study IV',
+        date: 'February 2026',
+        images: ['../images/demo404.png','../images/demo401.png','../images/demo402.png','../images/demo403.png'],
+        content: `This one took me somewhere new, my first time tackling anatomy. <br><br>
+I stepped away from the course structure for this one and chose to challenge myself with something way more complex. Learning only really happens when things get uncomfortable, and this was uncomfortable. <br><br>
+The entire skeleton was built starting from a single cube, which still feels a little wild to think about. Working from orthographic image references, I got into mirror, subdivision, and boolean operations for the first time. These opened up a lot, symmetry, form, complexity, all while keeping the mesh manageable. Genuinely exciting tools to work with. <br><br>
+Anatomy is without question the hardest thing I've taken on in 3D so far. The ribcage and skull pushed my understanding of proportion and structure further than anything else in this series. For a first anatomical study though, I'm proud of how it came out. <br><br>
+It also felt like opening a door. Whether that leads toward humanoid forms, deeper organic modeling, or something else entirely.`
+      },
+      {
+        number: 'III',
+        title: 'Scene Modeling · Blender Study III',
+        date: 'January 2026',
+        images: ['../images/demo304.png','../images/demo301.png','../images/demo303.png','../images/demo302.png'],
+        content: `This one continues the series with a room scene inspired by Jujutsu Kaisen, an anime and manga that's been a big visual influence on me. <br><br>
+This project is where things started opening up tool-wise. I worked with object joining, face deletion, extrusion, loop cuts, and beveling for the first time. Bevel especially became a favorite fast, it adds weight and realism to geometry that would otherwise feel too rigid. I also pushed it more aggressively for abstract forms, which is how I built things like the salad on the table and the laundry in the basket. <br><br>
+Organic shapes are still a weak spot for me, cloth-like forms in particular. Proportion is another one I'm actively working on, things like wall height and object scale come up constantly. I don't see these as roadblocks though, more like things that sharpen naturally the more you look at and build things. <br><br>
+Since this is the third project I also wanted to share a bit of how I actually work. I usually have a reference image open next to Blender along with a checklist of props to keep things organized. I start with the room structure and layer in details from there. The workflow is still evolving but each project makes it feel more natural, and I'm looking forward to putting the newer tools to use in the next one.`
+      },
+      {
+        number: 'II',
+        title: 'Forming Faces · Blender Study II',
+        date: 'January 2026',
+        images: ['../images/demo201.png','../images/demo204.png','../images/demo203.png','../images/demo202.png'],
+        content: `This is the second in the series, picking up where the first left off. <br><br>
+The reference this time is a scene from Star Wars, an X-wing flying toward the Death Star. Classic for a reason, and it turned out to be a pretty good challenge too. <br><br>
+This is where I started using face editing tools, rotating, scaling, and moving individual faces to build out the shapes. I haven't gotten into bevel, join, or face deletion yet, but just having face editing available opened things up a lot. It's a noticeable jump in what's possible. <br><br>
+Honestly it was a little overwhelming at first. Every new tool adds another layer to the workflow. Keeping the scope simple helped me stay focused on actually learning the basics rather than getting lost in complexity. <br><br>
+This one builds directly on the first project and I'm already seeing where the next step is going to take things.`
+      },
+      {
+        number: 'I',
+        title: 'Block Foundations · Blender Study I',
+        date: 'January 2026',
+        images: ['../images/demo101.png','../images/demo104.png','../images/demo103.png','../images/demo102.png'],
+        content: `This is the first in a series of Blender exercises documenting my progress as I pick up more advanced techniques over time. I'm working through this independently, so these posts are as much about tracking my learning as they are about the work itself. <br><br>
+The reference for this one is Moonlight. Highly recommend it if you haven't seen it. <br><br>
+It's a recreation of a scene from the film. My focus was intentionally narrow: just scale, rotate, and move operations. No face editing, no shape modeling. I wanted to build a stronger feel for spatial relationships and scene composition before touching anything more complex. <br><br>
+The work itself was mostly about simplicity, building the scene from scratch and organizing space to match the cinematic reference. It gave me a solid workflow to build on and a lot of confidence heading into my future projects.`
+      }
+    ];
+
+    let current = 0;
+
+    const mainImg    = document.getElementById('journal-main-img');
+    const thumbsWrap = document.getElementById('journal-thumbs');
+    const textWrap   = document.getElementById('journal-text');
+    const counter    = document.getElementById('journal-counter');
+    const navLabel   = document.getElementById('journal-nav-label');
+    const prevBtn    = document.getElementById('prev-btn');
+    const nextBtn    = document.getElementById('next-btn');
+    const entryNav   = document.getElementById('journal-entry-nav');
+
+    // Build quick-access buttons
+    entries.forEach((entry, i) => {
+      const btn = document.createElement('button');
+      btn.textContent = entry.number;
+      btn.addEventListener('click', () => renderEntry(i));
+      entryNav.appendChild(btn);
+    });
+
+    function updateEntryNav(index) {
+      entryNav.querySelectorAll('button').forEach((btn, i) => {
+        btn.classList.toggle('active', i === index);
+      });
+    }
+
+    function renderEntry(index) {
+      current = index;
+      const entry = entries[index];
+
+      // Dynamic calculation for correct entry number representation (10 down to 01)
+      const displayNum = entries.length - index;
+      counter.textContent = `Entry ${String(displayNum).padStart(2, '0')} · ${entries.length}`;
+      navLabel.textContent = entry.title;
+
+      mainImg.src = entry.images[0];
+      mainImg.alt = entry.title;
+
+      thumbsWrap.innerHTML = '';
+      entry.images.forEach((src, i) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `View ${i + 1}`;
+        if (i === 0) img.classList.add('active');
+        img.addEventListener('click', () => {
+          mainImg.src = src;
+          thumbsWrap.querySelectorAll('img').forEach(t => t.classList.remove('active'));
+          img.classList.add('active');
+        });
+        thumbsWrap.appendChild(img);
+      });
+
+      textWrap.innerHTML = `
+        <h2 class="journal-entry-title">${entry.title}</h2>
+        <span class="journal-date">${entry.date}</span>
+        <div class="journal-body">${entry.content}</div>
+        ${entry.extra || ''}
+      `;
+      textWrap.classList.remove('fade-in');
+      void textWrap.offsetWidth;
+      textWrap.classList.add('fade-in');
+
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === entries.length - 1;
+      updateEntryNav(index);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    prevBtn.addEventListener('click', () => { if (current > 0) renderEntry(current - 1); });
+    nextBtn.addEventListener('click', () => { if (current < entries.length - 1) renderEntry(current + 1); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft'  && current > 0)                  renderEntry(current - 1);
+      if (e.key === 'ArrowRight' && current < entries.length - 1) renderEntry(current + 1);
+    });
+
+    // Renders the first element in the reversed list (Entry X)
+    renderEntry(0);
+  </script>
+
+  <script type="module" src="../js/logo3d.js"></script>
+</body>
+</html>

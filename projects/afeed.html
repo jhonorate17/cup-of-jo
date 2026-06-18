@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cup of Jo</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner nav-triptych">
+  
+      <a href="../index.html" class="nav-logo-left">
+<canvas id="logo-canvas"
+  data-model="../models/jo.glb">
+</canvas>
+      </a>
+  
+      <span class="nav-wordmark-center">Cup of Jo</span>
+  
+      <div class="nav-links">
+        <a href="../projects.html" class="active">Projects</a>
+        <a href="../about.html">About</a>
+      </div>
+  
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="container project-page">
+
+    <!-- HERO / CAROUSEL -->
+    <section class="project-hero">
+      <img id="project-main-img" src="../images/workin.gif" alt="Project Preview">
+      <div class="carousel-dots"></div>
+      <button class="prev-btn">&#10094;</button>
+      <button class="next-btn">&#10095;</button>
+    </section>
+
+    <!-- PROJECT INFO -->
+    <section class="project-info">
+      <h1>Sample Title</h1>
+      <p>
+  Sample Body<br><br>
+      </p>
+    </section>
+
+    <!-- BACK LINK -->
+    <div class="back-link">
+      <a href="../projects.html">← Back to Projects</a>
+    </div>
+
+  </main>
+
+  <!-- IMAGE ARRAY -->
+  <script>
+    window.projectImages = [
+      "../images/workin.gif",
+      "../images/workin.gif",
+      "../images/workin.gif",
+      "../images/workin.gif"
+    ];
+  </script>
+  <script src="../js/project-carousel.js"></script>
+<script type="module" src="../js/logo3d.js"></script>
+</body>
+</html>
