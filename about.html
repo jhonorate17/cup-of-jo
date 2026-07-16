@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About · Cup of Jo</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2 family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     /* ── PROFILE IMAGE CROSS-FADE & SIZING ── */
@@ -60,6 +60,12 @@
     .id-photo-container.clicked .hover-photo {
       opacity: 1;
     }
+
+    /* ── Small consistency touch: eyebrow label above the card ── */
+    .about-eyebrow {
+      text-align: center;
+      margin-top: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -81,6 +87,9 @@
 
   <!-- MAIN -->
   <main class="container about">
+    <p class="section-label about-eyebrow">About the barista</p>
+    <p class="section-label about-eyebrow">~ Email Below</p>
+
     <section class="id-card">
       <div class="id-photo-container" id="profile-pic-toggle">
         <img src="./images/pfp1.png" alt="Jo portrait" class="photo resting-photo" />

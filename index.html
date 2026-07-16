@@ -14,129 +14,6 @@
   <title>Cup of Jo</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    .home-wrap {
-      padding: 1.5rem 2rem 2rem;
-      display: flex;
-      justify-content: center;
-    }
-    .home-scene {
-      position: relative;
-      width: 100%;
-      max-width: 1500px;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .home-scene img.bg-main {
-      width: 100%;
-      display: block;
-      border-radius: 8px;
-    }
-    .hotspot {
-      position: absolute;
-      cursor: pointer;
-      border-radius: 6px;
-      background: none;
-      border: none;
-      transition: background 0.2s, box-shadow 0.2s;
-      
-      /* Synchronized periodic glow loop */
-      animation: periodic-glow 2s ease-in-out infinite;
-    }
-    
-    .hotspot:hover, .hotspot.mobile-active {
-      background: rgba(255,255,255,0.12) !important;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.3) !important;
-      animation-play-state: paused; 
-    }
-
-    /* Coordinated slow pulse animation keyframe (FIXED SYNTAX) */
-    @keyframes periodic-glow {
-      0%, 100% {
-        box-shadow: 0 0 0 0px rgba(255, 255, 255, 0);
-        background: rgba(255, 255, 255, 0);
-      }
-      70% {
-        box-shadow: 0 0 12px 2px rgba(226, 211, 174, 0.35);
-        background: rgba(157, 133, 62, 0.05);
-      }
-      85% {
-        box-shadow: 0 0 12px 2px rgba(255, 255, 255, 0.35);
-        background: rgba(255, 255, 255, 0.05);
-      }
-    }
-
-    .hotspot-label {
-      position: fixed;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: #fff;
-      background: rgba(0,0,0,0.55);
-      padding: 0.4rem 0.9rem;
-      border-radius: 4px;
-      opacity: 0;
-      transition: opacity 0.2s;
-      pointer-events: none;
-      z-index: 10;
-    }
-    .hotspot-label.visible { opacity: 1; }
-
-    /* ── ME overlay ── */
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.75); 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 3rem; 
-      padding: 2rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-    .hero-overlay.visible {
-      opacity: 1;
-      pointer-events: auto;
-      cursor: pointer;
-    }
-    .overlay-img {
-      max-width: 40%;
-      max-height: 70%;
-      object-fit: contain;
-      border-radius: 6px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-    }
-    .hero-desc {
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      font-size: 1.1rem;
-      max-width: 480px;
-      line-height: 1.6;
-      text-align: left; 
-    }
-
-    /* Responsive adjustment for smaller screens */
-    @media (max-width: 768px) {
-      .hero-overlay {
-        flex-direction: column;
-        gap: 0.75rem;       /* Reduced gap to save vertical space */
-        padding: 1rem;       /* Reduced padding */
-      }
-      .overlay-img {
-        max-width: 50%;      /* Shrunk image size slightly */
-        max-height: 35%;
-      }
-      .hero-desc {
-        text-align: center;
-        font-size: 0.9rem;   /* Shrunk text size from 1.1rem */
-        line-height: 1.4;    /* Tightened text lines */
-      }
-    }
-  </style>
 </head>
 <body>
 
@@ -153,93 +30,76 @@
     </div>
   </nav>
 
-  <div class="home-wrap">
-    <div class="home-scene">
-      <img src="./images/coffeeshop-bg.png" class="bg-main" alt="Cup of Jo coffee shop">
+  <div class="container">
 
-      <a class="hotspot" data-label="BROWSE PROJECTS" href="projects.html"
-         style="left: 73%; top: 79%; width: 16%; height: 17%;"></a>
+    <header class="menu-hero">
+      <p class="section-label">Est. 2026 — UNCA New Media &amp; Computer Science</p>
+      <p class="menu-tagline">A small menu of things I have built, brewed with 3D modeling, interactive code, and web design.</p>
 
-      <a class="hotspot" data-label="ABOUT ME" href="about.html"
-         style="left: 2%; top: 59%; width: 13%; height: 22%;"></a>
-
-      <button class="hotspot" id="antenna-hotspot" data-label="MY SKILLS"
-         style="left: 41%; top: 19%; width: 6%; height: 11%;"></button>
-
-      <div class="hero-overlay" id="hero-overlay">
-        <img src="images/heroone.png" class="overlay-img" alt="Skills Graphic">
-        
-        <p class="hero-desc">
-          UNCA New Media major <br>Computer Science minor <br><br>· 3D Modeling <br>· 3D Printing <br>· Interactive Code <br>· Web Design
-        </p>
+      <div class="menu-photo-grid">
+        <div class="media-placeholder menu-photo-main">
+          <img src="images/hero1.png" alt="Main hero photo">
+        </div>
+        <div class="menu-photo-side-row">
+          <div class="media-placeholder menu-photo-side">
+            <img src="images/hero2.png" alt="Side photo A">
+          </div>
+          <div class="media-placeholder menu-photo-side">
+           <img src="images/hero3.png" alt="Side photo B">
+          </div>
+        </div>
       </div>
-    </div>
+    </header>
+
+    <section class="menu-specials">
+      <p class="section-label">Today's specials</p>
+
+      <a class="special-item" href="/projects/journal.html">
+        <span class="special-num">No. 1</span>
+        <span class="special-body">
+          <span class="special-title">Learning Blender · My Journal</span>
+          <span class="special-desc placeholder-text">The documenting of my first ~6 months of learning Blender!</span>
+        </span>
+      </a>
+
+      <a class="special-item" href="projects.html">
+        <span class="special-num">No. 2</span>
+        <span class="special-body">
+          <span class="special-title">Check Back Later!</span>
+          <span class="special-desc placeholder-text">More Coming Soon...</span>
+        </span>
+      </a>
+
+      <a class="special-item" href="projects.html">
+        <span class="special-num">No. 3</span>
+        <span class="special-body">
+          <span class="special-title">Check Back Later!</span>
+          <span class="special-desc placeholder-text">More Coming Soon...</span>
+        </span>
+      </a>
+
+      <div class="specials-cta">
+        <a class="btn-link" href="projects.html">See the full menu</a>
+      </div>
+    </section>
+
+    <section class="menu-barista">
+      <div class="media-placeholder">
+        <img src="images/coj1.png" alt="Portrait of Jo">
+      </div>
+      <div class="menu-barista-text">
+        <h3>About the barista</h3>
+        <p class="placeholder-text">It is great to meet you!</p>
+        <a class="btn-link" href="about.html">Read my story!</a>
+      </div>
+    </section>
+
   </div>
 
-  <div class="hotspot-label" id="hotspot-label"></div>
-
-  <script>
-    const label = document.getElementById('hotspot-label');
-    const hotspots = document.querySelectorAll('.hotspot');
-
-    hotspots.forEach(spot => {
-      // DESKTOP: Hover handlers
-      spot.addEventListener('mouseenter', () => {
-        label.textContent = spot.dataset.label;
-        label.classList.add('visible');
-      });
-      
-      spot.addEventListener('mouseleave', () => {
-        label.classList.remove('visible');
-        spot.classList.remove('mobile-active');
-      });
-
-      // MOBILE & TOUCH: Intercept single taps
-      spot.addEventListener('click', (e) => {
-        // Only run this logic if it's a touch display scenario 
-        // Checking window.matchMedia lets us protect default desktop behavior
-        if (window.matchMedia("(max-width: 768px)").matches) {
-          
-          // If this specific hotspot isn't active yet
-          if (!spot.classList.contains('mobile-active')) {
-            e.preventDefault(); // Stop the link from firing immediately
-            e.stopPropagation();
-
-            // Clear any previously tapped hotspots first
-            hotspots.forEach(h => h.classList.remove('mobile-active'));
-            
-            // Activate current hotspot, update text, and show label
-            spot.classList.add('mobile-active');
-            label.textContent = spot.dataset.label;
-            label.classList.add('visible');
-          }
-          // If it is ALREADY active, let the click pass through natively (goes to page)
-        }
-      });
-    });
-
-    // Clear labels if the user taps anywhere on the background image map
-    document.querySelector('.home-scene').addEventListener('click', (e) => {
-      if (!e.target.classList.contains('hotspot')) {
-        label.classList.remove('visible');
-        hotspots.forEach(h => h.classList.remove('mobile-active'));
-      }
-    });
-
-    const heroOverlay = document.getElementById('hero-overlay');
-    const antennaBtn = document.getElementById('antenna-hotspot');
-
-    antennaBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      heroOverlay.classList.add('visible');
-    });
-
-    heroOverlay.addEventListener('click', () => {
-      heroOverlay.classList.remove('visible');
-      label.classList.remove('visible');
-      antennaBtn.classList.remove('mobile-active');
-    });
-  </script>
+  <footer class="footer">
+    <span>Cup of Jo</span>
+    <a href="about.html">Get in touch</a>
+  </footer>
 
   <script type="module" src="js/logo3d.js"></script>
 </body>
