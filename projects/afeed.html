@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
   <script type="importmap">
-{
-  "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
   }
-}
-</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cup of Jo</title>
-  <link rel="stylesheet" href="../css/style.css">
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blender Journal · Cup of Jo</title>
+  <link rel="stylesheet" href="../css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -37,42 +37,94 @@
     </div>
   </nav>
 
-  <!-- MAIN -->
-  <main class="container project-page">
+  <main class="container">
 
-    <!-- HERO / CAROUSEL -->
-    <section class="project-hero">
-      <img id="project-main-img" src="../images/workin.gif" alt="Project Preview">
-      <div class="carousel-dots"></div>
-      <button class="prev-btn">&#10094;</button>
-      <button class="next-btn">&#10095;</button>
-    </section>
+    <div class="journal-header">
+      <h1>Base Title</h1>
+    </div>
 
-    <!-- PROJECT INFO -->
-    <section class="project-info">
-      <h1>Sample Title</h1>
-      <p>
-  Sample Body<br><br>
-      </p>
-    </section>
+    <div class="journal-entry-nav" id="journal-entry-nav"></div>
 
-    <!-- BACK LINK -->
+    <div class="journal-wrap">
+      <div class="journal-images">
+        <img id="journal-main-img" class="journal-main-img" src="" alt="">
+        <div class="journal-thumbs" id="journal-thumbs"></div>
+      </div>
+
+      <div class="journal-text" id="journal-text"></div>
+    </div>
+
     <div class="back-link">
       <a href="../projects.html">← Back to Projects</a>
     </div>
 
   </main>
 
-  <!-- IMAGE ARRAY -->
   <script>
-    window.projectImages = [
-      "../images/workin.gif",
-      "../images/workin.gif",
-      "../images/workin.gif",
-      "../images/workin.gif"
+    const entries = [
+      {
+        number: 'Instagram: @jogyokuro',
+        title: 'Base Title',
+        date: 'Base Date',
+        images: ['base img','base img','base img','base img'],
+        content:`
+        Base Text
+      `}
     ];
+
+    let current = 0;
+
+    const mainImg    = document.getElementById('journal-main-img');
+    const thumbsWrap = document.getElementById('journal-thumbs');
+    const textWrap   = document.getElementById('journal-text');
+    const entryNav   = document.getElementById('journal-entry-nav');
+
+
+    function updateEntryNav(index) {
+      entryNav.querySelectorAll('button').forEach((btn, i) => {
+        btn.classList.toggle('active', i === index);
+      });
+    }
+
+    function renderEntry(index) {
+      current = index;
+      const entry = entries[index];
+
+      mainImg.src = entry.images[0];
+      mainImg.alt = entry.title;
+
+      thumbsWrap.innerHTML = '';
+      entry.images.forEach((src, i) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `View ${i + 1}`;
+        if (i === 0) img.classList.add('active');
+        img.addEventListener('click', () => {
+          mainImg.src = src;
+          thumbsWrap.querySelectorAll('img').forEach(t => t.classList.remove('active'));
+          img.classList.add('active');
+        });
+        thumbsWrap.appendChild(img);
+      });
+
+      textWrap.innerHTML = `
+        <h2 class="journal-entry-title">${entry.title}</h2>
+        <span class="journal-date">${entry.date}</span>
+        <div class="journal-body">${entry.content}</div>
+        ${entry.extra || ''}
+      `;
+      textWrap.classList.remove('fade-in');
+      void textWrap.offsetWidth;
+      textWrap.classList.add('fade-in');
+
+      updateEntryNav(index);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Renders the first element in the reversed list (Entry X)
+    renderEntry(0);
   </script>
-  <script src="../js/project-carousel.js"></script>
-<script type="module" src="../js/logo3d.js"></script>
+
+  <script type="module" src="../js/logo3d.js"></script>
 </body>
 </html>
