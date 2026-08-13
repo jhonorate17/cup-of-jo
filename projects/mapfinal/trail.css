@@ -1,0 +1,33 @@
+/* Base map */
+html, body, #map {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* My popups */
+.leaflet-popup-content-wrapper {
+    max-width: 400px !important;
+    padding: 10px 12px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    overflow: visible !important; 
+}
+
+.leaflet-popup-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+}
+
+.leaflet-popup-content img {
+    width: 100%;     
+    height: 150px;   
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #333;
+    display: block;
+    margin: 0 auto;
+}
